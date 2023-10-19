@@ -7,9 +7,9 @@ let audioSource;
 let analyser;
 
 container.addEventListener("click", function () {
-const audio1 = document.getElementById("audio1")
-audio1.src = "music/A New Error.wav"
-  const audioContext = new AudioContext() ;
+  const audio1 = document.getElementById("audio1")
+  audio1.src = "music/A New Error.wav"
+  const audioContext = new AudioContext();
   audio1.play();
   audioSource = audioContext.createMediaElementSource(audio1);
   analyser = audioContext.createAnalyser();
@@ -20,20 +20,26 @@ audio1.src = "music/A New Error.wav"
   const dataArray = new Uint8Array(bufferLength);
 
   const barWidth = canvas.width / bufferLength;
+  const borderWidth = 3; 
+  const totalBarWidth = barWidth + borderWidth; 
   let barHeight;
   let x;
 
   function animate() {
-    x= 0;
+    x = 0;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     analyser.getByteFrequencyData(dataArray);
     for (let i = 0; i < bufferLength; i++) {
       barHeight = dataArray[i];
-      ctx.fillStyle = "white";
+      ctx.fillStyle = "#F5AA50";
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-      x += barWidth;
+      ctx.fillStyle = "black"; 
+      ctx.fillRect(x + barWidth, canvas.height - barHeight, borderWidth, barHeight);
+      x += totalBarWidth; 
     }
     requestAnimationFrame(animate);
   }
   animate();
 });
+
+
