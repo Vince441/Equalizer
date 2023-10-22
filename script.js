@@ -75,16 +75,6 @@ function seekAudio(seekValue) {
   }
 }
 
-  // Mettre à jour la position de la barre de lecture
-  const seekBar = document.getElementById("seekBar");
-  if (audioContext && audio.duration) {
-    const currentTime = audio.currentTime;
-    const duration = audio.duration;
-    const seekValue = (currentTime / duration) * 100;
-    seekBar.value = seekValue;
-  }
-
-
 // Ajoutez un gestionnaire d'événements pour les boutons "suivant" et "précédent"
 const changeMusicButton = document.getElementById("changeMusic");
 const changeMusicButton2 = document.getElementById("changeMusic2");
@@ -171,7 +161,14 @@ function animate() {
   let barHeight;
   let x = 0;
 
-
+  // Mettre à jour la position de la barre de lecture
+  const seekBar = document.getElementById("seekBar");
+  if (audioContext && audio.duration) {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    const seekValue = (currentTime / duration) * 100;
+    seekBar.value = seekValue;
+  }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   analyser.getByteFrequencyData(dataArray);
