@@ -79,7 +79,7 @@ button {
   justify-content: center;
   padding: 5px;
   margin: 0 auto;
-  background-color: rgba(4, 15, 61, 0.521);
+  background-color: rgba(2, 8, 32, 0.521);
   color: white;
   border-bottom: 1px solid white;
   border-top: 1px solid white;
@@ -110,13 +110,11 @@ height: 3px;
 }
 
 
+
+
 #upload{
   color: white;
   padding: 5px;
+  
 }
 
-.fileinputs {
-border: 1px solid red;
-
-
-}

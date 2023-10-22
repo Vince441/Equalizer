@@ -75,6 +75,16 @@ function seekAudio(seekValue) {
   }
 }
 
+  // Mettre à jour la position de la barre de lecture
+  const seekBar = document.getElementById("seekBar");
+  if (audioContext && audio.duration) {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    const seekValue = (currentTime / duration) * 100;
+    seekBar.value = seekValue;
+  }
+
+
 // Ajoutez un gestionnaire d'événements pour les boutons "suivant" et "précédent"
 const changeMusicButton = document.getElementById("changeMusic");
 const changeMusicButton2 = document.getElementById("changeMusic2");
@@ -130,6 +140,13 @@ playMusicButton.addEventListener("click", () => { //Changement du boutton play/p
   }
 });
 
+audio.addEventListener("ended", () => {
+  changeMusic("next"); // Passer à la musique suivante
+  if (audioPlaying) {
+    audio.play(); // Lire automatiquement la nouvelle musique
+  }
+});
+
 
 
 function setupAudio() {
@@ -141,22 +158,9 @@ function setupAudio() {
   analyser.fftSize = 2048;
 }
 
-audio.addEventListener("play", () => {
-  if (!audioContext) {
-    setupAudio();
-    animate();
-  }
-  audioContext.resume().then( () => {
-    audio.play();
-  });
-});
 
-audio.addEventListener("ended", () => {
-  changeMusic("next"); // Passer à la musique suivante
-  if (audioPlaying) {
-    audio.play(); // Lire automatiquement la nouvelle musique
-  }
-});
+
+
 
 function animate() {
   const bufferLength = analyser.frequencyBinCount;
@@ -167,14 +171,7 @@ function animate() {
   let barHeight;
   let x = 0;
 
-  // Mettre à jour la position de la barre de lecture
-  const seekBar = document.getElementById("seekBar");
-  if (audioContext && audio.duration) {
-    const currentTime = audio.currentTime;
-    const duration = audio.duration;
-    const seekValue = (currentTime / duration) * 100;
-    seekBar.value = seekValue;
-  }
+
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   analyser.getByteFrequencyData(dataArray);
