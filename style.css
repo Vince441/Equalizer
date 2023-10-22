@@ -1,36 +1,110 @@
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #container {
-position: absolute; 
-top: 0;
-left: 0;
-background-color: black;
-width: 100%;
-height: 100%;
-
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("images/fond2.jpg");
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 #canvas1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
 }
 
 #audio1 {
+  width: 50%;
+  margin: 50px auto;
+  display: block;
+}
 
-width: 50%;
-margin: 50px auto;
-display: block;
+.container-button {
+  width: 100vw;
+  position: absolute;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.432);
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  flex: 1;
+}
 
+button {
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.button img {
+  width: 80px;
+
+  border-radius: 5px;
+}
+
+.button img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.title {
+  margin-bottom: 80px;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 0 auto;
+  background-color: rgba(4, 15, 61, 0.521);
+  color: white;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  backdrop-filter: blur(10px);
+}
+
+#musicTitle {
+  font-family: "Roboto Condensed", sans-serif;
+  animation: title 5s infinite;
+}
+
+.bar {
+  width: 100vw;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.425);
+  border-bottom:1px solid black;
+  box-shadow: 0px 0px 19px 5px rgba(34, 34, 34, 0.39),
+    inset 0px 0px 19px 5px rgba(58, 58, 58, 0.212);
+}
+
+#seekBar {
+width: 20vw;
+height: 3px;
 
 }
