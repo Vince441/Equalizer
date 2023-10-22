@@ -1,5 +1,6 @@
-const audio1 = document.getElementById("audio1");
+
 const canvas = document.getElementById("canvas1");
+const file = document.getElementById("upload");
 canvas.width = innerWidth;
 canvas.height = 700;
 const ctx = canvas.getContext("2d");
@@ -200,6 +201,17 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
+
+file.addEventListener('change', function (){
+const files = this.files
+audio.src = URL.createObjectURL(files[0])
+audio.load();
+audio.play();
+
+})
+
+
+
 // const container = document.getElementById("container");
 // const canvas = document.getElementById("canvas1");
 // canvas.width = window.innerWidth;

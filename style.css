@@ -108,3 +108,15 @@ width: 20vw;
 height: 3px;
 
 }
+
+
+#upload{
+  color: white;
+  padding: 5px;
+}
+
+.fileinputs {
+border: 1px solid red;
+
+
+}
